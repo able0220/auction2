@@ -7,13 +7,14 @@ let interval;
 let lastState = null; // 되돌리기용 상태 저장
 
 const teams = {
-  A: { balance: 1000, totalSpent: 0, items: [], lastBid: 0 },
-  B: { balance: 1000, totalSpent: 0, items: [], lastBid: 0 },
-  C: { balance: 1000, totalSpent: 0, items: [], lastBid: 0 },
-  D: { balance: 1000, totalSpent: 0, items: [], lastBid: 0 },
-  E: { balance: 1000, totalSpent: 0, items: [], lastBid: 0 },
-  F: { balance: 1000, totalSpent: 0, items: [], lastBid: 0 },
+  "1": { balance: 1000, totalSpent: 0, items: [], lastBid: 0 },
+  "2": { balance: 1000, totalSpent: 0, items: [], lastBid: 0 },
+  "3": { balance: 1000, totalSpent: 0, items: [], lastBid: 0 },
+  "4": { balance: 1000, totalSpent: 0, items: [], lastBid: 0 },
+  "5": { balance: 1000, totalSpent: 0, items: [], lastBid: 0 },
+  "6": { balance: 1000, totalSpent: 0, items: [], lastBid: 0 },
 };
+
 
 // ✅ 경매 숫자: 고정 순서 (원하면 여기 배열만 바꾸면 됨)
 const items = [7,1,3,14,15,10,11,12,9,2,8,4,13,5,6];
@@ -112,7 +113,7 @@ function undoLastBid() {
 // 입찰
 function customBid(team) {
   saveLastState();
-  const input = parseInt(prompt(`팀 ${team}이 입찰할 금액을 입력하세요:`), 10);
+  const input = parseInt(prompt(`${team} 팀이 입찰할 금액을 입력하세요:`), 10);
   const additionalCost = input - teams[team].lastBid;
 
   if (!isNaN(input) && input > highestBid) {
